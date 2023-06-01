@@ -33,9 +33,9 @@ public class T1 {
 
     }
 
-    @SneakyThrows
+
     @Test
-    public void t3()  {
+    public void t3() throws InterruptedException {
         while (true){
             Thread.sleep(1000);
             System.out.println("...");
