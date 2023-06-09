@@ -1,4 +1,4 @@
-package com.daily.algorithm;
+package cn.daily.algorithm;
 
 import java.util.Arrays;
 import java.util.concurrent.ForkJoinPool;

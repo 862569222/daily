@@ -1,8 +1,5 @@
-package com.daily.algorithm;
+package cn.daily.algorithm;
 
-import cn.daily.juc.sync.Join;
-
-import java.util.concurrent.ForkJoinPool;
 
 /**
  * 项目名称：dailyWork
@@ -77,8 +74,8 @@ public class Sort {
         int n = arr.length;
         for (int end = 1; end < n; end++) {
 
-            for(int pre = end -1 ; pre >=0 && arr[pre]> arr[end] ; pre--){
-                swap(arr,pre,end);
+            for(int pre = end -1 ; pre >=0 && arr[pre]> arr[pre +1 ] ; pre--){
+                swap(arr,pre,pre +1);
             }
         }
     }
@@ -98,7 +95,29 @@ public class Sort {
 
         int[] arr = {4,6,6,3,8,9,5,3,2,5,7,8,6,543,9,65,4};
         printSort(arr);
-        insertSort2(arr);
+        insertSort3(arr);
         printSort(arr);
+        double random = Math.random();
+        System.out.println(random);
+        double random1 = Math.random();
+        System.out.println(random1);
+        System.out.println(Math.min(random, random1));
     }
+
+    public static void insertSort3(int[] arr){
+        if(arr == null || arr.length < 2){
+            return;
+        }
+
+        int n = arr.length;
+        for (int i = n; i > 0 ; i--) {
+            for (int j = 1; j < i; j++) {
+                if(arr[j-1] > arr[j]){
+                    swap(arr,j-1,j);
+                }
+            }
+        }
+    }
+
+
 }
