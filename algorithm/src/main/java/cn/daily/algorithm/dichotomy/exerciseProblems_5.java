@@ -1,4 +1,4 @@
-package cn.daily.algorithm;
+package cn.daily.algorithm.dichotomy;
 
 import java.util.Arrays;
 
