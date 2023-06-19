@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * 项目名称：daily
  * 类 名 称：exerciseProblems_3
- * 类 描 述：二分法 - 有序数组找到>=num最左的位置
+ * 类 描 述：二分法 - 有序数组找到>=num最右的位置
  * 创建时间：2023/6/19 11:11
  * 创 建 人：zhaibo
  */
