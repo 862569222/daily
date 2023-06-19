@@ -16,7 +16,7 @@ public class exerciseProblems_3 {
             return false;
         }
         int l = 0 ;
-        int r = arr.length;
+        int r = arr.length-1;
         while (l <= r){
             int mid = (l + r) / 2;
             if(arr[mid] == num){
@@ -45,10 +45,10 @@ public class exerciseProblems_3 {
     }
 
     public static int[] getRandomArray(int maxValue,int maxLen){
-        int len = (int)Math.random()*maxLen;
+        int len = (int)(Math.random()*maxLen);
         int[] arr = new int[len];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int)Math.random()*maxValue;
+            arr[i] = (int)(Math.random()*maxLen);
         }
         return arr;
     }
