@@ -38,19 +38,19 @@ public class exerciseProblems_6 {
         while (l < r-1 ){
 
             int mid =  ( l + r ) / 2;
+
             if(arr[mid-1] > arr[mid] && arr[mid] < arr[mid+1]){
                 return mid;
             }
             if(arr[mid] > arr[mid - 1]){
                 r = mid - 1 ;
-            }
-            if(arr[mid] > arr[mid + 1]){
+            }else if(arr[mid] > arr[mid + 1]){
                 l = mid + 1 ;
             }
         }
 
 
-        return -1;
+        return arr[l] < arr[r] ? l : r;
     }
 
     public static boolean test(int[] arr, int minIndex){
@@ -94,7 +94,6 @@ public class exerciseProblems_6 {
         int times = 10000;
         for (int i = 0; i < times; i++) {
             int[] randomArray = getRandomArray(maxValue, maxLen);
-
 //            printArray(randomArray);
             int index = find(randomArray);
             boolean testIndex = false;
@@ -102,8 +101,8 @@ public class exerciseProblems_6 {
                 testIndex = test(randomArray,index );
             }
             if(!testIndex){
-//                printArray(randomArray);
-//                System.out.println("匹配错误:" + index + ":" + testIndex);
+                printArray(randomArray);
+                System.out.println("匹配错误:" + index + ":" + testIndex);
             }
             if(testIndex){
                 printArray(randomArray);
