@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 创建时间：2023/6/21 09:55
  * 创 建 人：zhaibo
  */
-public class LinkedListToQueue<T> {
+public class LinkedListToQueue {
 
     @Data
     public static class Node<T>{
