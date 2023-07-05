@@ -1,5 +1,6 @@
 package cn.daily.juc.reentrant;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -60,29 +61,57 @@ public class R1 {
 
     }
 
-    public static void main(String[] args) {
-        R1 r1 = new R1();
-        new Thread(() -> {
-            try {
-                r1.m();
-            } catch (InterruptedException e) {
-                //c.signalAll();
-                e.printStackTrace();
-            }
-        },"t1").start();
-        /*try {
-            TimeUnit.SECONDS.sleep(5);
+//    public static void main(String[] args) {
+//        R1 r1 = new R1();
+//        new Thread(() -> {
+//            try {
+//                r1.m();
+//            } catch (InterruptedException e) {
+//                //c.signalAll();
+//                e.printStackTrace();
+//            }
+//        },"t1").start();
+//        /*try {
+//            TimeUnit.SECONDS.sleep(5);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }*/
+//
+//        new Thread(() -> {
+//            try {
+//                r1.m2();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        },"t2").start();
+//
+//    }
+public static void main(String[] args) throws InterruptedException, IOException {
+    ReentrantLock lock = new ReentrantLock();
+    Condition condition = lock.newCondition();
+
+    new Thread(() -> {
+        lock.lock();
+        System.out.println("子线程获取锁资源并await挂起线程");
+        try {
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }*/
+        }
+        try {
+            condition.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("子线程挂起后被唤醒！持有锁资源");
 
-        new Thread(() -> {
-            try {
-                r1.m2();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        },"t2").start();
-
-    }
+    }).start();
+    Thread.sleep(100);
+    // =================main======================
+    lock.lock();
+    System.out.println("主线程等待5s拿到锁资源，子线程执行了await方法");
+    condition.signal();
+    System.out.println("主线程唤醒了await挂起的子线程");
+    lock.unlock();
+}
 }

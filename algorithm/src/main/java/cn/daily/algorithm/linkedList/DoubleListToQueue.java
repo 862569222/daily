@@ -48,7 +48,7 @@ public class DoubleListToQueue {
             }else {
                 head.next = curNode;
                 curNode.last = head;
-                tail = curNode;
+                head = curNode;
             }
             size++;
         }
@@ -56,14 +56,17 @@ public class DoubleListToQueue {
 
             if(head == null){
                 return null;
-            }else {
-                DoubleNode<T> curNode = head;
+            }
+            size--;
+            T value = head.value;
+            if(head == tail){
+                head = null;
+                tail = null;
+            } else {
                 head = head.last;
                 head.next = null;
-                curNode.last = null;
-                return curNode.value;
             }
-
+            return value;
         }
 
         public void offerTail( T value){
@@ -80,16 +83,21 @@ public class DoubleListToQueue {
         }
 
         public T pollTail(){
-            DoubleNode<T> node = null;
+
             if(tail == null){
                 return null;
-            }else {
-                node = tail ;
+            }
+
+            size--;
+            T value = tail.value;
+            if(tail == head){
+                tail = null;
+                head = null;
+            } else {
                 tail = tail.next;
                 tail.last = null;
-                node.next = null;
             }
-            return node.value;
+            return value;
         }
 
         public T peekHead(){
@@ -110,7 +118,7 @@ public class DoubleListToQueue {
     public static void testDeque() {
         MyQueue<Integer> myDeque = new MyQueue<>();
         Deque<Integer> test = new LinkedList<>();
-        int testTime = 5;
+        int testTime = 50000;
         int maxValue = 200000000;
         System.out.println("测试开始！");
         for (int i = 0; i < testTime; i++) {
