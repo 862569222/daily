@@ -29,6 +29,7 @@ public class 两个链表相加 {
         ListNode curL = l;
         ListNode curS = s;
         ListNode last = curL;
+
         int carry = 0;
         int curNum = 0;
         while (curS != null) {
