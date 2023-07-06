@@ -1,7 +1,6 @@
 package cn.daily.proxy.cglib;
 
 import cn.daily.proxy.Man;
-import cn.daily.proxy.Person;
 
 /**
  * @author zhaibo

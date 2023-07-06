@@ -3,9 +3,6 @@ package cn.daily.juc.container;
 import org.junit.Test;
 
 import java.util.*;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * @author zhaibo

@@ -3,16 +3,9 @@ package cn.daily.compare;
 import cn.daily.juc.cas.Student;
 import cn.daily.stream.Person;
 import org.junit.Test;
-import org.w3c.dom.DOMImplementationSource;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
-import java.util.function.Function;
-import java.util.function.ToDoubleFunction;
-import java.util.function.ToIntFunction;
-import java.util.function.ToLongFunction;
 
 /**
  * @author zhaibo

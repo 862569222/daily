@@ -1,7 +1,5 @@
 package cn.daily.proxy;
 
-import java.lang.reflect.Proxy;
-
 /**
  * @author zhaibo
  * @title: zb

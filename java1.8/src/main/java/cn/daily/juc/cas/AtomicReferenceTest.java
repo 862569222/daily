@@ -2,7 +2,6 @@ package cn.daily.juc.cas;
 
 import org.junit.Test;
 
-import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
