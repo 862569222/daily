@@ -11,13 +11,13 @@ import java.util.concurrent.TimeUnit;
  *
  * @author：zhaibo
  */
-public class ArrayBlockingQueueTest{
+public class ArrayBlockingQueueTest {
     public static void main(String[] args) throws InterruptedException {
         ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(5);
 
         queue.add(1);
         queue.offer(2);
-        queue.offer(3,1, TimeUnit.MILLISECONDS);
+        queue.offer(3, 1, TimeUnit.MILLISECONDS);
         queue.put(4);
 
 
