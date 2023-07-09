@@ -14,11 +14,11 @@ public class ThreadPoolExecutorTest {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         //1. 构建线程池
         ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
-                2,
-                5,
+                1,
+                1,
                 10,
                 TimeUnit.SECONDS,
-                new ArrayBlockingQueue<>(5),
+                new ArrayBlockingQueue<>(1),
                 new ThreadFactory() {
                     @Override
                     public Thread newThread(Runnable r) {
@@ -35,16 +35,20 @@ public class ThreadPoolExecutorTest {
             System.out.println("没有返回结果的任务");
         });
 
-        //3. 让线程池处理有返回结果的任务
-        Future<Object> future = threadPool.submit(new Callable<Object>() {
-            @Override
-            public Object call() throws Exception {
-                System.out.println("我有返回结果！");
-                return "返回结果";
-            }
-        });
-        Object result = future.get();
-        System.out.println(result);
+        for (int i = 0; i <10 ; i++) {
+            //3. 让线程池处理有返回结果的任务
+            Future<Object> future = threadPool.submit(new Callable<Object>() {
+                @Override
+                public Object call() throws Exception {
+                    Thread.sleep(1000);
+                    System.out.println("我有返回结果！");
+                    return "返回结果";
+                }
+            });
+//            Object result = future.get();
+//            System.out.println(result);
+        }
+
 
         //4. 如果是局部变量的线程池，记得用完要shutdown
         threadPool.shutdown();
