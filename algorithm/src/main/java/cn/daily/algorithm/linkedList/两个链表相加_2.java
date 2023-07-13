@@ -20,7 +20,7 @@ public class 两个链表相加_2 {
             this.val = val;
         }
     }
-
+    // 测试链接：https://leetcode.com/problems/add-two-numbers/
     public ListNode addTwoNumbers(ListNode head1,ListNode head2){
         int head1Length = getLength(head1);
         int head2length = getLength(head2);
