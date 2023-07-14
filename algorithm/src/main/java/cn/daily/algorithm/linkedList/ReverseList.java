@@ -2,7 +2,9 @@ package cn.daily.algorithm.linkedList;
 
 import lombok.Data;
 
+import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,6 +39,28 @@ public class ReverseList {
             head = pos;
 
         }
+
+        return pre;
+    }
+
+
+    /**
+     * 1->2->3->4->5->6->7->8
+     * @param head
+     * @return
+     */
+    public static Node reverseLinkedList_2(Node head){
+        Node pre = null;
+        Node cur = head;
+        Node next = null;
+
+        while (cur != null){
+            next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+
 
         return pre;
     }
@@ -100,9 +124,12 @@ public class ReverseList {
             List<Integer> objects = toList(randomLinkedList);
             String collect = objects.stream().map(integer -> integer.toString()).collect(Collectors.joining(","));
             System.out.println(collect);
-            Node reverse = reverseLinkedList(randomLinkedList);
-            printNode(reverse);
-            boolean b = checkLinkedListReverse(reverse, objects);
+//            Node reverse = reverseLinkedList(randomLinkedList);
+//            printNode(reverse);
+//            boolean b = checkLinkedListReverse(reverse, objects);
+            Node reverseLinkedList_2 = reverseLinkedList_2(randomLinkedList);
+            printNode(reverseLinkedList_2);
+            boolean b = checkLinkedListReverse(reverseLinkedList_2, objects);
             System.out.println("");
         }
 
