@@ -1,8 +1,8 @@
 package cn.daily.zookeeper.locks;
 
-import com.msb.zookeeper.configurationcenter.DefaultWatch;
-import com.msb.zookeeper.configurationcenter.ZKConf;
-import com.msb.zookeeper.configurationcenter.ZKUtils;
+import cn.daily.zookeeper.configurationcenter.DefaultWatch;
+import cn.daily.zookeeper.configurationcenter.ZKConf;
+import cn.daily.zookeeper.configurationcenter.ZKUtils;
 import org.apache.zookeeper.ZooKeeper;
 import org.junit.After;
 import org.junit.Before;

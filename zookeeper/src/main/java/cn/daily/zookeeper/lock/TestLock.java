@@ -1,6 +1,6 @@
 package cn.daily.zookeeper.lock;
 
-import com.msb.zookeeper.config.ZKUtils;
+import cn.daily.zookeeper.config.ZKUtils;
 import org.apache.zookeeper.ZooKeeper;
 import org.junit.After;
 import org.junit.Before;
@@ -45,11 +45,11 @@ public class TestLock {
                     watchCallBack.tryLock();
                     //干活
                     System.out.println(threadName+" working...");
-//                    try {
-//                        Thread.sleep(1000);
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     //释放锁
                     watchCallBack.unLock();
 

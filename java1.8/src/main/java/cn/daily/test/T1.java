@@ -22,6 +22,8 @@ public class T1 {
     public void t1(){
         Integer a = 128;
         Integer b = 128;
+        int size = Integer.SIZE;
+
         System.out.println(a==b);
     }
 

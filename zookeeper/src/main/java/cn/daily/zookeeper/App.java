@@ -19,7 +19,7 @@ public class App
         //watch的注册值发生在 读类型调用，get，exites。。。
         //第一类：new zk 时候，传入的watch，这个watch，session级别的，跟path 、node没有关系。
         final CountDownLatch cd = new CountDownLatch(1);
-        final ZooKeeper zk = new ZooKeeper("192.168.150.11:2181,192.168.150.12:2181,192.168.150.13:2181,192.168.150.14:2181",
+        final ZooKeeper zk = new ZooKeeper("192.168.100.3:2181",
                 3000, new Watcher() {
             //Watch 的回调方法！
             @Override
@@ -88,10 +88,9 @@ public class App
                 break;
         }
 
-
         String pathName = zk.create("/ooxx", "olddata".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
 
-        final Stat  stat=new Stat();
+        final Stat stat=new Stat();
         byte[] node = zk.getData("/ooxx", new Watcher() {
             @Override
             public void process(WatchedEvent event) {
