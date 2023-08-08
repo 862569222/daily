@@ -1,6 +1,5 @@
-package cn.daily.blockingQueue;
+package cn.daily.blockingqueue;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.concurrent.DelayQueue;

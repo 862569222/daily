@@ -1,4 +1,4 @@
-package cn.daily.blockingQueue;
+package cn.daily.blockingqueue;
 
 import java.util.Comparator;
 import java.util.concurrent.PriorityBlockingQueue;

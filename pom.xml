@@ -12,6 +12,7 @@
         <module>rocketMQ</module>
         <module>algorithm</module>
         <module>java1.8</module>
+        <module>zookeeper</module>
     </modules>
 
     <dependencies>

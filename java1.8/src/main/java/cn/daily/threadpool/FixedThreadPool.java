@@ -1,11 +1,11 @@
-package cn.daily.threadPool;
+package cn.daily.threadpool;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
  * @BelongsProject: daily
- * @BelongsPackage: cn.daily.threadPool
+ * @BelongsPackage: cn.daily.threadpool
  * @Author: zhaibo
  * @CreateTime: 2023-07-09
  * @Description: TODO
