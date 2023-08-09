@@ -1,11 +1,11 @@
-package cn.daily.blockingQueue;
+package cn.daily.blockingqueue;
 
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.TimeUnit;
 
 /**
  * @BelongsProject: daily
- * @BelongsPackage: cn.daily.blockingQueue
+ * @BelongsPackage: cn.daily.blockingqueue
  * @Author: zhaibo
  * @CreateTime: 2023-07-08
  * @Description: TODO
