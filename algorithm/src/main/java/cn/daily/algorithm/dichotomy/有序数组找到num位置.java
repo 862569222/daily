@@ -9,7 +9,7 @@ import java.util.Arrays;
  * 创建时间：2023/6/19 11:11
  * 创 建 人：zhaibo
  */
-public class exerciseProblems_3 {
+public class 有序数组找到num位置 {
 
     public static boolean find(int[] arr, int num){
         if(arr == null || arr.length == 0){

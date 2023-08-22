@@ -1,9 +1,5 @@
 package cn.daily.algorithm.dichotomy;
 
-import sun.font.TrueTypeFont;
-
-import java.util.Arrays;
-
 /**
  * 项目名称：daily
  * 类 名 称：exerciseProblems_3
@@ -19,7 +15,7 @@ import java.util.Arrays;
  * 创建时间：2023/6/19 11:11
  * 创 建 人：zhaibo
  */
-public class exerciseProblems_6 {
+public class 局部最小值 {
 
     public static int find(int[] arr){
         if(arr == null || arr.length == 0){
