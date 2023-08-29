@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class DelayQueueTest {
     public static void main(String[] args) throws InterruptedException {
-        DelayQueue delayQueue = new DelayQueue<Task>();
+        DelayQueue<Task> delayQueue = new DelayQueue<Task>();
         delayQueue.put(new Task("任务A", 3000L));
         delayQueue.put(new Task("任务B", 9000L));
         delayQueue.put(new Task("任务C", 6000L));
@@ -42,7 +42,6 @@ public class DelayQueueTest {
         /**
          * 判断什么时候出延迟队列
          * @param unit the time unit
-         * @return
          */
         @Override
         public long getDelay(TimeUnit unit) {
