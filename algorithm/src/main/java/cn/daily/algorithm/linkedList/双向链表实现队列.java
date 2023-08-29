@@ -6,10 +6,11 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 /**
+ * 双向链表实现队列
  * @date: 2023/7/4
  * @author：zhaibo
 **/
-public class DoubleListToQueue {
+public class 双向链表实现队列 {
 
     public static class DoubleNode<T>{
         private T value;

@@ -5,13 +5,15 @@ import lombok.Data;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
+ * 单链表实现栈
  * 项目名称：daily
  * 类 名 称：LinkedListToQueue
  * 类 描 述：单链表实现栈
- * 创建时间：2023/6/21 09:55
- * 创 建 人：zhaibo
+ *
+ * @author zhaibo
+ * @date 2023/08/29
  */
-public class LinkedListToStack<T> {
+public class 单链表实现栈<T> {
 
     @Data
     public static class Node<T>{

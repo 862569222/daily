@@ -2,90 +2,87 @@ package cn.daily.algorithm.linkedList;
 
 import lombok.Data;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * 双链表反转
  * 项目名称：daily
  * 类 名 称：ReverseList
- * 类 描 述：单链表反转
- * 创建时间：2023/6/20 09:49
- * 创 建 人：zhaibo
+ *
+ * @author zhaibo
+ * @date 2023/08/29
  */
 
-public class ReverseList {
+public class 双链表反转 {
+
 
     @Data
-    public static class Node{
+    public static class DoubleNode{
         private Integer value;
-        private Node next;
-
+        private DoubleNode last;
+        private DoubleNode next;
     }
 
-
-    public static Node reverseLinkedList(Node head){
+    public static DoubleNode reverseDoubleNode(DoubleNode head){
         if(head == null){
             return null;
         }
-        Node pre = null;
-        Node pos = null;
+        DoubleNode pre = null;
+        DoubleNode pos = null;
         while (head != null){
             pos = head.next;
+            head.last = head.next;
             head.next = pre;
             pre = head;
             head = pos;
-
         }
-
         return pre;
     }
 
-
     /**
-     * 1->2->3->4->5->6->7->8
+     * 1<->2<->3<->4<->5<->6<->7<->8
      * @param head
      * @return
      */
-    public static Node reverseLinkedList_2(Node head){
-        Node pre = null;
-        Node cur = head;
-        Node next = null;
+    public static DoubleNode reverseDoubleNode_2(DoubleNode head){
+        DoubleNode pre = null;
+        DoubleNode cur = head;
+        DoubleNode next = null;
 
         while (cur != null){
             next = cur.next;
             cur.next = pre;
+            cur.last = next;
             pre = cur;
             cur = next;
         }
-
-
         return pre;
     }
 
-
-    public static Node getRandomLinkedList(int maxValue ,int maxLen){
+    public static DoubleNode getRandomDoubleList(int maxValue ,int maxLen){
         int len = (int)(Math.random()*maxLen);
         if(len == 0){
             return null;
         }
         len -- ;
-        Node head = new Node();
+        DoubleNode head = new DoubleNode();
         head.setValue((int) (Math.random() * maxValue));
-        Node p = head ;
+        DoubleNode pre = head;
         while (len != 0){
-            Node next = new Node();
+            DoubleNode next = new DoubleNode();
             next.setValue((int) (Math.random() * maxValue));
-            p.setNext(next);
-            p = next;
-            len --;
+            next.setLast(pre);
+            pre.next = next;
+            pre = next;
+            len -- ;
         }
         return head;
     }
 
-    public static List<Integer> toList (Node node){
+    public static List<Integer> doubleNodeToList (DoubleNode node){
         ArrayList<Integer> objects = new ArrayList<>();
 
         while (node != null){
@@ -96,43 +93,48 @@ public class ReverseList {
     }
 
 
-    public static boolean checkLinkedListReverse(Node node,List<Integer> list){
-        for (int i = list.size() - 1; i >= 0 ; i--) {
-            if(!list.get(i).equals(node.value) ){
+    public static boolean checkDoubleListReverse(DoubleNode head,List<Integer> origin) {
+        DoubleNode end = null;
+        for (int i = origin.size() - 1; i >= 0; i--) {
+            if (!origin.get(i).equals(head.value)) {
                 return false;
             }
-            node = node.next;
+            end = head;
+            head = head.next;
+        }
+        for (int i = 0; i < origin.size(); i++) {
+            if (!origin.get(i).equals(end.value)) {
+                return false;
+            }
+            end = end.last;
         }
         return true;
     }
 
-    public static void printNode(Node node){
+
+
+    public static void printNode(DoubleNode node){
         while (node != null){
             System.out.print(node.value +",");
             node = node.next;
         }
         System.out.println();
     }
-
-
     public static void main(String[] args) {
         int maxValue = 10 ;
         int maxLen = 6;
         int times = 100;
+
         for (int i = 0; i < times; i++) {
-            Node randomLinkedList = getRandomLinkedList(maxValue, maxLen);
-            List<Integer> objects = toList(randomLinkedList);
+            DoubleNode randomLinkedList = getRandomDoubleList(maxValue, maxLen);
+            List<Integer> objects = doubleNodeToList(randomLinkedList);
             String collect = objects.stream().map(integer -> integer.toString()).collect(Collectors.joining(","));
             System.out.println(collect);
-//            Node reverse = reverseLinkedList(randomLinkedList);
-//            printNode(reverse);
-//            boolean b = checkLinkedListReverse(reverse, objects);
-            Node reverseLinkedList_2 = reverseLinkedList_2(randomLinkedList);
-            printNode(reverseLinkedList_2);
-            boolean b = checkLinkedListReverse(reverseLinkedList_2, objects);
+            DoubleNode reverse = reverseDoubleNode_2(randomLinkedList);
+            printNode(reverse);
+            boolean b = checkDoubleListReverse(reverse, objects);
             System.out.println("");
         }
-
 
     }
 }
