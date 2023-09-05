@@ -23,4 +23,16 @@ public class 比较两个二叉树是否相同 {
         }
         return q.val == p.val && isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
     }
+
+
+    public static boolean isSameTree2(TreeNode p, TreeNode q) {
+        if(p == null ^ q == null){
+            return false;
+        }
+        if(p == null && q == null){
+            return true;
+        }
+
+        return p.val == q.val && isSameTree2(p.left,q.left) && isSameTree2(p.right,q.right);
+    }
 }
