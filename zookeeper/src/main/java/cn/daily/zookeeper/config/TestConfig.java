@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * @author: 马士兵教育
+ * @author: zhaibo
  * @create: 2019-09-20 20:07
  */
 public class TestConfig {

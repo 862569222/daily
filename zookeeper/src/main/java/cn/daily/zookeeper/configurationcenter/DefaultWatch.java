@@ -7,7 +7,7 @@ import java.util.concurrent.CountDownLatch;
 
 
 /**
- * @author: 马士兵教育
+ * @author: zhaibo
  * @create: 2019-09-20 13:53
  */
 public class DefaultWatch implements Watcher {

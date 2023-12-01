@@ -1,7 +1,7 @@
 package cn.daily.zookeeper.config;
 
 /**
- * @author: 马士兵教育
+ * @author: zhaibo
  * @create: 2019-09-20 20:28
  */
 

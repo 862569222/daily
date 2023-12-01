@@ -5,7 +5,7 @@ import org.apache.zookeeper.ZooKeeper;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @author: 马士兵教育
+ * @author: zhaibo
  * @create: 2019-09-20 20:08
  */
 public class ZKUtils {

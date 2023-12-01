@@ -51,6 +51,7 @@ public class WatchCallBack implements Watcher, AsyncCallback.StatCallback, Async
                 break;
             case NodeChildrenChanged:
                 break;
+            default:
         }
     }
 
