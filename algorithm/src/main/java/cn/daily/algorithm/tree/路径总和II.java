@@ -57,4 +57,25 @@ public class 路径总和II {
         }
         return ans;
     }
+
+    public static void process2(TreeNode x , List<Integer> path ,int preSum, int sum ,List<List<Integer>> ans){
+        if(x.left == null && x.right == null){
+            if(preSum +x.val == sum){
+                path.add(x.val);
+                ans.add(path.stream().collect(Collectors.toList()));
+                path.remove(path.size() - 1);
+            }
+        }
+        //x是非叶子节点
+        preSum += x.val;
+        path.add(x.val);
+        if(x.left != null){
+            process2(x.left,path,preSum,sum,ans);
+        }
+        if(x.right != null){
+            process2(x.right,path,preSum,sum,ans);
+        }
+        path.remove(path.size() - 1);
+
+    }
 }
