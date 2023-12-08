@@ -66,7 +66,26 @@ public class 单链表反转 {
 
         return pre;
     }
-
+    /**
+     * 1->2->3->4->5->6->7->8
+     *
+     * @param head
+     * @return
+     */
+    public static Node reverseLinkedList_3(Node head){
+        if(head == null){
+            return null;
+        }
+        Node pre = null;
+        Node next = null;
+        while (head != null){
+            next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
+        }
+        return pre;
+    }
 
     public static Node getRandomLinkedList(int maxValue ,int maxLen){
         int len = (int)(Math.random()*maxLen);
@@ -129,7 +148,7 @@ public class 单链表反转 {
 //            Node reverse = reverseLinkedList(randomLinkedList);
 //            printNode(reverse);
 //            boolean b = checkLinkedListReverse(reverse, objects);
-            Node reverseLinkedList_2 = reverseLinkedList_2(randomLinkedList);
+            Node reverseLinkedList_2 = reverseLinkedList_3(randomLinkedList);
             printNode(reverseLinkedList_2);
             boolean b = checkLinkedListReverse(reverseLinkedList_2, objects);
             System.out.println("");

@@ -62,6 +62,23 @@ public class 双链表反转 {
         return pre;
     }
 
+    /**
+     * 1<->2<->3<->4<->5<->6<->7<->8
+     * @param head
+     * @return
+     */
+    public static DoubleNode reverseDoubleNode_3(DoubleNode head){
+        DoubleNode pre = null;
+        DoubleNode next = null;
+        while (head != null){
+            next = head.next;
+            head.last = next;
+            head.next = pre;
+            pre = head;
+            head = next;
+        }
+        return pre;
+    }
     public static DoubleNode getRandomDoubleList(int maxValue ,int maxLen){
         int len = (int)(Math.random()*maxLen);
         if(len == 0){
