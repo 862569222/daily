@@ -7,7 +7,7 @@ package cn.daily.algorithm.dichotomy;
  *
  *          有一个数组无序，且左右相邻的数不相等
  * 局部最小定义： arr[0] <arr[1]  认为0 位置局部最小
- *              arr[n-2] <arr[n-1] 认为n-1 位置局部最小
+ *              arr[n-2] >arr[n-1] 认为n-1 位置局部最小
  *
  *
  *
@@ -87,7 +87,7 @@ public class 局部最小值 {
     public static void main(String[] args) {
         int maxValue = 30 ;
         int maxLen = 20;
-        int times = 10000;
+        int times = 1000000;
         for (int i = 0; i < times; i++) {
             int[] randomArray = getRandomArray(maxValue, maxLen);
 //            printArray(randomArray);
@@ -99,6 +99,7 @@ public class 局部最小值 {
             if(!testIndex){
                 printArray(randomArray);
                 System.out.println("匹配错误:" + index + ":" + testIndex);
+                break;
             }
             if(testIndex){
                 printArray(randomArray);
