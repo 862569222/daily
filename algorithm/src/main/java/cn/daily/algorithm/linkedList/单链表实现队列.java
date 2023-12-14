@@ -61,6 +61,41 @@ public class 单链表实现队列 {
         }
     }
 
+
+    public static class MyQueue2<T>{
+        private Node<T> head;
+        private Node<T> tail;
+        AtomicInteger size = new AtomicInteger();
+
+        public void offer(T t){
+            Node<T> node = new Node<T>();
+            node.value = t;
+            if(tail == null){
+                tail = head = node;
+            }else {
+                tail.next = node;
+                tail = node;
+            }
+            size.getAndIncrement();
+        }
+        public T poll(){
+            if(head != null){
+                Node<T> node = head;
+                head = head.next;
+                size.decrementAndGet();
+                return node.value;
+            }
+            return null;
+        }
+
+        public T peek(){
+            if(head != null){
+                return head.value;
+            }
+            return null;
+        }
+
+    }
     public static void main(String[] args) {
         Myqueue myqueue = new Myqueue();
         myqueue.offer(1);
