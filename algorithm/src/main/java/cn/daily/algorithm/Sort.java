@@ -22,7 +22,6 @@ public class Sort {
             return;
         }
         //从左到右遍历 选择一个最小值和最小值交换位置
-        int N = arr.length;
         for(int i = 0; i < arr.length ; i++){
             int minIndex = i;
             for(int j = i+1 ; j < arr.length  ; j++ ){
@@ -31,7 +30,20 @@ public class Sort {
             swap(arr,minIndex, i);
         }
     }
-
+    public static void selectionSort2(int[] arr){
+        if(arr == null || arr.length < 2){
+            return;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            int index = i;
+            for (int j = i+1; j < arr.length ; j++) {
+                if(arr[index] < arr[j]){
+                    index = j;
+                }
+            }
+            swap(arr,i,index);
+        }
+    }
     public static void bubbleSort(int[] arr){
         if(arr == null || arr.length < 2){
             return;

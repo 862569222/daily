@@ -1,4 +1,4 @@
-package cn.daily.algorithm.code.code_04;
+package cn.daily.algorithm.code.code_03;
 
 import lombok.Data;
 

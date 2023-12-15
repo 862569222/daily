@@ -10,7 +10,7 @@ package cn.daily.algorithm;
 public class RecursionSort {
     public static void main(String[] args) {
         int[] arr = {4,9,2,67,8};
-        System.out.println(getmax(arr,0,arr.length-1));
+        System.out.println(getmax2(arr,0,arr.length-1));
     }
 
     private static int getmax(int[] arr, int L, int R) {
@@ -22,5 +22,16 @@ public class RecursionSort {
         int leftMax = getmax(arr, L, mid);
         int rightMax = getmax(arr, mid+1, R);
         return Math.max(leftMax,rightMax);
+    }
+
+    private static int getmax2(int[] arr , int l ,int r){
+        if(l == r){
+            return arr[r];
+        }
+
+        int mid = l + ((r-l)>>1);
+        int leftmax = getmax2(arr, l, mid);
+        int rightmax = getmax2(arr, mid + 1 ,r);
+        return  Math.max(leftmax,rightmax);
     }
 }
