@@ -40,11 +40,19 @@ public class 快排 {
         }
         int left = l - 1;
         int right = r;
+        int index = l;
         while (left < right){
-
+            if(arr[l] == arr[r]){
+                index++;
+            }
+            if(arr[index] < arr[r]){
+                swap(arr,++left,index++);
+            }
+            if(arr[index] > arr[r]){
+                swap(arr,--right,index);
+            }
         }
-
-
+        swap(arr,right,r );
         return new int[]{left + 1,right};
     }
 
