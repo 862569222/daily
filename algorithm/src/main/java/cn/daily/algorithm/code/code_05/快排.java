@@ -150,7 +150,7 @@ public class 快排 {
             }
         }
     }
-
+ 
 
     public static void swap(int[] arr ,int l,int r){
         int temp = arr[l];
