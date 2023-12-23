@@ -198,7 +198,7 @@ public class 堆 {
             }
 
             arr[size] = num;
-            heapInsert2(arr,size++);
+            heapInsert(arr,size++);
         }
 
         public int pop(){
@@ -226,7 +226,7 @@ public class 堆 {
             }
         }
 
-        private void heapInsert2(int[] arr, int index) {
+        private void heapInsert(int[] arr, int index) {
             while ((index - 1)/2 >= 0 && arr[index] > arr[(index-1)/2]){
                 if(arr[index] > arr[(index - 1)/2]){
                     swap(arr,index,(index - 1)/2);
