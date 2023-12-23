@@ -36,6 +36,7 @@ public class 路径总和II {
                 ans.add(path.stream().collect(Collectors.toList()));
                 path.remove(path.size() - 1 );
             }
+            return;
         }
         //x非叶子节点
         preSum += x.val;
