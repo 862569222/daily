@@ -47,7 +47,7 @@ public class 堆 {
             }
             int ans = arr[0];
             arr[0] = arr[--size];
-            heapify(arr,size);
+            heapify(arr);
 
             return ans;
         }
@@ -58,13 +58,13 @@ public class 堆 {
          * @param arr
          * @param size
          */
-        private void heapify(int[] arr, int size) {
+        private void heapify(int[] arr) {
             int head = 0;
             int left = head * 2 + 1;
             while (left < size){
                 //证明存在左孩子
                 //获取左右孩子中最大孩子的下标
-                int largestIndex = left + 1 < size && arr[left + 1] < arr[left] ? left + 1 : left;
+                int largestIndex = left + 1 < size && arr[left + 1] > arr[left] ? left + 1 : left;
                 largestIndex = arr[largestIndex] > arr[head] ? largestIndex : head;
                 if(head == largestIndex){
                     break;
@@ -135,15 +135,15 @@ public class 堆 {
 
         for (int i = 0; i < times; i++) {
             int curLimit = (int)(Math.random() * limit)+ 1;
-            MyMaxHeap maxHeap = new MyMaxHeap(curLimit);
+            Heap maxHeap = new Heap(curLimit);
             RightMaxHeap rightMaxHeap = new RightMaxHeap(curLimit);
             int curOptimes = (int)(Math.random() * limit);
             for (int j = 0; j < curOptimes; j++) {
                 if (maxHeap.isEmpty() != rightMaxHeap.isEmpty()) {
-                    System.out.println("Oops!");
+                    System.out.println("Oops1!");
                 }
                 if (maxHeap.isFull() != rightMaxHeap.isFull()) {
-                    System.out.println("Oops!");
+                    System.out.println("Oops2!");
                 }
                 if(maxHeap.isEmpty()){
                     int curValue = (int) (Math.random() * value);
@@ -151,7 +151,7 @@ public class 堆 {
                     rightMaxHeap.push(curValue);
                 }else if(maxHeap.isFull()){
                     if(maxHeap.pop() != rightMaxHeap.pop()){
-                        System.out.println("Oops!");
+                        System.out.println("Oops3!");
                     }
                 }else {
                     if(Math.random() < 0.5){
@@ -160,7 +160,7 @@ public class 堆 {
                         rightMaxHeap.push(curValue);
                     }else {
                         if(maxHeap.pop() != rightMaxHeap.pop()){
-                            System.out.println("Oops!");
+                            System.out.println("Oops4!");
                         }
                     }
                 }
@@ -168,5 +168,77 @@ public class 堆 {
 
         }
         System.out.println("finish!");
+    }
+
+
+    /**
+     * =========================================================================
+     */
+
+    public static class Heap{
+        public int[] arr;
+        public int limit;
+        public int size;
+
+        public Heap(int limit) {
+            arr = new int[limit];
+            this.limit = limit;
+        }
+
+        public boolean isEmpty(){
+            return size==0;
+        }
+        public boolean isFull(){
+            return size == limit;
+        }
+
+        public void push(int num){
+            if(size == limit){
+                throw new RuntimeException("heap is full");
+            }
+
+            arr[size] = num;
+            heapInsert2(arr,size++);
+        }
+
+        public int pop(){
+            int ans = arr[0];
+
+            arr[0] = arr[--size];
+            heapify(arr);
+
+            return ans;
+        }
+
+        private void heapify(int[] arr) {
+            int index = 0;
+            int left = index*2 +1;
+            while (left < size){
+                //获取最大子孩子
+                int largestIndex = left + 1 < size && arr[left + 1] > arr[left] ? left + 1 : left;
+                largestIndex = arr[largestIndex] > arr[index] ? largestIndex : index;
+                if(largestIndex == index){
+                    break;
+                }
+                swap(arr,largestIndex,index);
+                index = largestIndex;
+                left = index*2 + 1;
+            }
+        }
+
+        private void heapInsert2(int[] arr, int index) {
+            while ((index - 1)/2 >= 0 && arr[index] > arr[(index-1)/2]){
+                if(arr[index] > arr[(index - 1)/2]){
+                    swap(arr,index,(index - 1)/2);
+                }
+                index = (index - 1)/2;
+            }
+        }
+
+        private void swap(int[] arr, int index, int i) {
+            int temp = arr[index];
+            arr[index] = arr[i];
+            arr[i] = temp;
+        }
     }
 }
