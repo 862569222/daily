@@ -6,7 +6,13 @@ package cn.daily.algorithm.code.code_04;
  * @Description: https://leetcode.com/problems/reverse-pairs/
  */
 public class 大右边的数2倍 {
-
+    /**
+     * 给定一个数组 nums ，如果 i < j 且 nums[i] > 2*nums[j] 我们就将 (i, j) 称作一个重要翻转对。
+     *
+     * 你需要返回给定数组中的重要翻转对的数量。
+     * @param arr
+     * @return
+     */
     public static int reversePairs(int[] arr) {
         if (arr == null || arr.length < 2) {
             return 0;
