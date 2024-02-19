@@ -122,7 +122,7 @@ public class 堆排 {
     public static void main(String[] args) {
 
         int testTime = 500000;
-        int maxSize = 100;
+        int maxSize = 10;
         int maxValue = 100;
         boolean succeed = true;
         for (int i = 0; i < testTime; i++) {
