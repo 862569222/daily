@@ -13,6 +13,8 @@
         <module>algorithm</module>
         <module>java1.8</module>
         <module>zookeeper</module>
+        <module>sysio</module>
+        <module>sysio</module>
     </modules>
 
     <dependencies>
